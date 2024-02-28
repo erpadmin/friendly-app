@@ -18,3 +18,8 @@ ingress:
       paths:
         - path: /
 
+database:
+  vendor: mariadb
+  host: archops.localnet
+  port: 31006
+  secret: mariadb-secret
