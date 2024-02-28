@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: friendly-pv
+  namespace: default
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: cloud10.localnet
+    path: "/Public/data"
+  mountOptions:
+    - "rw"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: friendly-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: friendly-pv

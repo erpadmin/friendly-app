@@ -18,3 +18,9 @@ ingress:
       paths:
         - path: /
 
+volumeMounts:
+ - volume: friendly-pv
+   claim: friendly-pvc
+   mountPath: "/data"
+   nfsserver: cloud10.localnet
+   nfsmount: /Public/data
