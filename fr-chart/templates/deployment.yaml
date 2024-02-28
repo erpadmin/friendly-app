@@ -21,10 +21,3 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          volumeMounts:
-          - name: {{ index .Values.volumeMounts 0 "volume" }}
-            mountPath: {{ index .Values.volumeMounts 0 "mountPath" }}
-      volumes:
-      - name: {{ index .Values.volumeMounts 0 "volume" }}
-        persistentVolumeClaim:
-          claimName: {{ index .Values.volumeMounts 0 "claim" }}
